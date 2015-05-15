@@ -1,4 +1,4 @@
-package com.twogotrade.monitor.app;
+package com.twogotrade.monitor.util;
 
 import org.apache.commons.lang.StringUtils;
 import org.jsoup.Connection;
@@ -6,6 +6,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.twogotrade.monitor.app.UserAgentUtil;
 
 public class JsoupUtil {
 	private static final Logger logger = LoggerFactory.getLogger(JsoupUtil.class);

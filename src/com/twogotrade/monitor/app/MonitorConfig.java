@@ -15,4 +15,12 @@ public class MonitorConfig {
 
 	public static String DMVCD_DOMAIN = config.getString("dmvcd", "dmvcd_domain");
 	public static long DMVCD_CHECK_INTERVAL = config.getInt("dmvcd", "dmvcd_check_interval");
+
+	// email server config
+	public static String EMAIL_SERVER_HOST = config.getString("email", "email_server_host");
+	public static String EMAIL_AUTH_USER = config.getString("email", "email_auth_user");
+	public static String EMAIL_AUTH_PWD = config.getString("email", "email_auth_pwd");
+	public static String EMAIL_TO = config.getString("email", "email_to");
+	public static String EMAIL_FROM = config.getString("email", "email_from");
+	public static long EMAIL_SEND_INTERVAL = config.getInt("email", "email_send_interval") * 60 * 1000;
 }
