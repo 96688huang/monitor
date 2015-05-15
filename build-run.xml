@@ -6,7 +6,7 @@
 	</path>
 
 	<target name="start">
-		<java classname="com.twogotrade.vt_server.app.MonitorServer" failonerror="true" fork="yes">
+		<java classname="com.twogotrade.monitor.app.MonitorServer" failonerror="true" fork="yes">
 			<jvmarg line="-server -Xms128m -Xmx256m -Xloggc:logs/gc.log" />
 			<classpath refid="classpath.run" />
 		</java>
