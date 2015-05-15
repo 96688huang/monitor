@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "../../FeedJar/dtd/log4j.dtd">
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/' debug="true">
+
+	<!-- %d %-20.20c{1}:%-4L) %-5p %m%n -->
+	<!-- %d %-5p %m%n -->
+
+	<appender name="Console" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="conversionPattern"
+				value="%d %-20.20c{1}:%-4L) %-5p %m%n"/>
+		</layout>
+	</appender>
+
+	<appender name="File"
+		class="com.twogotrade.common.utils.DateTimeFileAppender">
+		<param name="file" value="logs/#{yyyy-MM-dd}.log"/>
+		<param name="append" value="true"/>
+		<param name="bufferedIO" value="true"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %m%n"/>
+		</layout>
+	</appender>
+
+	<!-- BugFix: do NOT use async and realtime logger at the same time
+	<appender name="Async" class="org.apache.log4j.AsyncAppender">
+	<param name="BufferSize" value="2048" />
+	<appender-ref ref="File" />
+	</appender>
+	-->
+
+	<appender name="ErrorFile"
+		class="com.twogotrade.common.utils.DateTimeFileAppender">
+		<param name="threshold" value="WARN"/>
+		<param name="file" value="logs/error_#{yyyy-MM-dd}.log"/>
+		<param name="append" value="true"/>
+		<param name="bufferedIO" value="false"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="conversionPattern"
+				value="%d %-20.20c{1}:%-4L) %-5p %m%n"/>
+		</layout>
+	</appender>
+
+	<appender name="Socket" class="org.apache.log4j.net.SocketAppender">
+		<param name="remoteHost" value="192.168.7.104"/>
+		<param name="port" value="12000"/>
+		<param name="locationInfo" value="true"/>
+		<param name="threshold" value="WARN"/>
+		<param name="reconnectionDelay" value="5" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="conversionPattern"
+				value="%d %-20.20c{1}:%-4L) %-5p %m%n"/>
+		</layout>
+	</appender>
+
+	<!--
+	<logger name="abc.xxx">
+	<level value="DEBUG" />
+	</logger>
+	-->
+
+	<root>
+		<priority value="INFO"/>
+		<appender-ref ref="Console"/>
+		<appender-ref ref="ErrorFile"/>
+		<!--<appender-ref ref="Socket"/>-->
+		<appender-ref ref="File" />
+	</root>
+</log4j:configuration>

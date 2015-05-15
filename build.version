@@ -1,0 +1,9 @@
+# property file defining the components information
+component.name=Monitor
+component.distfilename=monitor
+component.package=com.twogotrade.vt_server.app
+component.packagedir=com/twogotrade/vt_server/app
+component.version.major=1
+component.version.minor=0
+component.version.micro=0
+component.version.build=1

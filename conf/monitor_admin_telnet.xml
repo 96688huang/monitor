@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone='yes'?>
+<!-- dtd start, DO NOT MODIFY -->
+<!-- see: http://www.w3.org/TR/2000/REC-xml-20001006 -->
+<!DOCTYPE telnet_handler [
+	<!ELEMENT telnet_handler (section+)>
+<!ELEMENT section (menu?, answer+)>
+<!ATTLIST section
+		id ID #REQUIRED
+		main (true|false) #IMPLIED >
+<!ELEMENT menu (#PCDATA) >
+<!ELEMENT answer (input?, action+) >
+<!ELEMENT input (#PCDATA) >
+<!ELEMENT action (#PCDATA) >
+<!ATTLIST action type (section|method|replay|exit|return|message) #REQUIRED>
+]>
+<!-- dtd end -->
+
+<telnet_handler>
+	<section id="welcome" main="true">
+		<menu>
+			<![CDATA[
+============== VT Server Administrator ============
+1. System Properties
+2. Basic Information
+3. All Latest Volume and Turnover
+4. Query Security
+5. Database Information
+6. Client Sessions
+7. Test Db Connection
+x. exit
+------------------------------------------------------
+choose:
+]]>
+		</menu>
+		<answer>
+			<input>1</input>
+			<action type="method">showSystemProperties()</action>
+		</answer>
+		<answer>
+			<input>2</input>
+			<action type="method">showBasicInformation()</action>
+		</answer>
+		<answer>
+			<input>3</input>
+			<action type="method">showLatestVT()</action>
+		</answer>
+		<answer>
+			<input>4</input>
+			<action type="section">query_security</action>
+		</answer>
+		<answer>
+			<input>5</input>
+			<action type="method">showDatabaseInformation()</action>
+		</answer>
+		<answer>
+			<input>6</input>
+			<action type="method">showClientSessions()</action>
+		</answer>
+		<answer>
+			<input>7</input>
+			<action type="method">testDbConnection()</action>
+		</answer>
+
+		<answer>
+			<input>x</input>
+			<action type="exit"/>
+		</answer>
+		<answer>
+			<action type="replay"/>
+		</answer>
+	</section>
+
+	<section id="query_security">
+		<menu>Input Security Code(r to return): </menu>
+		<answer>
+			<input>r</input>
+			<action type="return"></action>
+		</answer>
+		<answer>
+			<action type="method">querySecurity()</action>
+		</answer>
+	</section>
+</telnet_handler>

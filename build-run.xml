@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<project name="2GoTrade Java Application Starter" default="start" basedir=".">
+	<path id="classpath.run">
+		<fileset dir="." includes="*.jar" />
+		<fileset dir="." includes="lib/**/*.jar" />
+	</path>
+
+	<target name="start">
+		<java classname="com.twogotrade.vt_server.app.MonitorServer" failonerror="true" fork="yes">
+			<jvmarg line="-server -Xms128m -Xmx256m -Xloggc:logs/gc.log" />
+			<classpath refid="classpath.run" />
+		</java>
+	</target>
+</project>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Dependency Import" basedir=".">
+	<!-- property file defining the component's dependencies -->
+
+	<!-- Properties used in compile_targets ANT target for JDK version x -->
+	<property name="component.target" value="1.x"/>
+	<property name="component.bootclasspath" value="${java_1_x_bootclasspath}"/>
+
+	<!-- 2GoTrade dependencies -->
+	<property name="common_utils-1.0.0.jar" value="${2gotrade_libdir}/common_utils/1.0.0/common_utils-1.0.0.jar"/>
+	<property name="service_support-1.0.0.jar" value="${2gotrade_libdir}/service_support/1.0.0/service_support-1.0.0.jar"/>
+	<property name="telnet_handler-1.0.0.jar" value="${2gotrade_libdir}/telnet_handler/1.0.0/telnet_handler-1.0.0.jar"/>
+	<property name="base_exceptions-1.0.0.jar" value="${2gotrade_libdir}/base_exceptions/1.0.0/base_exceptions-1.0.0.jar"/>
+
+	<!-- 3rd party dependencies --><property name="org.springframework.expression-3.1.0.M1.jar" value="${ext_libdir}/spring/3.1.0/org.springframework.expression-3.1.0.M1.jar"/>
+	<property name="org.springframework.web-3.1.0.M1.jar" value="${ext_libdir}/spring/3.1.0/org.springframework.web-3.1.0.M1.jar"/>
+	<property name="org.springframework.transaction-3.1.0.M1.jar" value="${ext_libdir}/spring/3.1.0/org.springframework.transaction-3.1.0.M1.jar"/>
+	<property name="org.springframework.test-3.1.0.M1.jar" value="${ext_libdir}/spring/3.1.0/org.springframework.test-3.1.0.M1.jar"/>
+	<property name="org.springframework.orm-3.1.0.M1.jar" value="${ext_libdir}/spring/3.1.0/org.springframework.orm-3.1.0.M1.jar"/>
+	<property name="org.springframework.core-3.1.0.M1.jar" value="${ext_libdir}/spring/3.1.0/org.springframework.core-3.1.0.M1.jar"/>
+	<property name="org.springframework.beans-3.1.0.M1.jar" value="${ext_libdir}/spring/3.1.0/org.springframework.beans-3.1.0.M1.jar"/>
+	<property name="org.springframework.asm-3.1.0.M1.jar" value="${ext_libdir}/spring/3.1.0/org.springframework.asm-3.1.0.M1.jar"/>
+	<property name="org.springframework.aop-3.1.0.M1.jar" value="${ext_libdir}/spring/3.1.0/org.springframework.aop-3.1.0.M1.jar"/>
+	<property name="org.springframework.context.support-3.1.0.M1.jar" value="${ext_libdir}/spring/3.1.0/org.springframework.context.support-3.1.0.M1.jar"/>
+	<property name="org.springframework.context-3.1.0.M1.jar" value="${ext_libdir}/spring/3.1.0/org.springframework.context-3.1.0.M1.jar"/>
+	<property name="jsoup-1.8.1.jar" value="${ext_libdir}/jsoup/1.8.1/jsoup-1.8.1.jar"/>
+	<property name="jaxen-1.1-beta-6.jar" value="${ext_libdir}/jaxen/1.1/jaxen-1.1-beta-6.jar"/>
+	<property name="dom4j-1.6.1.jar" value="${ext_libdir}/dom4j/dom4j-1.6.1.jar"/>
+	<property name="common-annotations.jar" value="${ext_libdir}/spring/2.5.6/dependence/j2ee/common-annotations.jar"/>
+	<property name="postgresql-8.2-509.jdbc3.jar" value="${ext_libdir}/postgresql/8.2/postgresql-8.2-509.jdbc3.jar"/>
+	<property name="slf4j-log4j12-1.5.5.jar" value="${ext_libdir}/slf4j/1.5.5/slf4j-log4j12-1.5.5.jar"/>
+	<property name="mina-core-1.1.5.jar" value="${ext_libdir}/mina/1.1.5/mina-core-1.1.5.jar"/>
+	<property name="c3p0-0.9.1.2.jar" value="${ext_libdir}/c3p0/0.9.1.2/c3p0-0.9.1.2.jar"/>
+	<property name="commons-logging-1.1.1.jar" value="${ext_libdir}/commons-logging/1.1.1/commons-logging-1.1.1.jar"/>
+	<property name="spring-2.5.6.jar" value="${ext_libdir}/spring/2.5.6/spring-2.5.6.jar"/>
+	<property name="perf4j-0.9.9.jar" value="${ext_libdir}/perf4j/0.9.9/perf4j-0.9.9.jar"/>
+	<property name="junit-3.8.2.jar" value="${ext_libdir}/junit/3.8.2/junit-3.8.2.jar"/>
+	<property name="log4j-1.2.15.jar" value="${ext_libdir}/log4j/1.2.15/log4j-1.2.15.jar"/>
+	<property name="slf4j-api-1.5.5.jar" value="${ext_libdir}/slf4j/1.5.5/slf4j-api-1.5.5.jar"/>
+	<property name="commons-lang-2.3.jar" value="${ext_libdir}/commons-lang/2.3/commons-lang-2.3.jar"/>
+	<property name="commons-io-1.4.jar" value="${ext_libdir}/commons-io/1.4/commons-io-1.4.jar"/>
+
+	<path id="component.2gotrade-dependencies"><pathelement location="${base_exceptions-1.0.0.jar}"/><pathelement location="${common_utils-1.0.0.jar}"/><pathelement location="${telnet_handler-1.0.0.jar}"/><pathelement location="${service_support-1.0.0.jar}"/></path>
+
+	<path id="component.3rdParty-dependencies"><pathelement location="${commons-io-1.4.jar}"/><pathelement location="${commons-lang-2.3.jar}"/><pathelement location="${slf4j-api-1.5.5.jar}"/><pathelement location="${log4j-1.2.15.jar}"/><pathelement location="${junit-3.8.2.jar}"/><pathelement location="${perf4j-0.9.9.jar}"/><pathelement location="${commons-logging-1.1.1.jar}"/><pathelement location="${slf4j-log4j12-1.5.5.jar}"/><pathelement location="${common-annotations.jar}"/><pathelement location="${dom4j-1.6.1.jar}"/><pathelement location="${jsoup-1.8.1.jar}"/><pathelement location="${org.springframework.context-3.1.0.M1.jar}"/><pathelement location="${org.springframework.context.support-3.1.0.M1.jar}"/><pathelement location="${org.springframework.aop-3.1.0.M1.jar}"/><pathelement location="${org.springframework.asm-3.1.0.M1.jar}"/><pathelement location="${org.springframework.beans-3.1.0.M1.jar}"/><pathelement location="${org.springframework.core-3.1.0.M1.jar}"/><pathelement location="${org.springframework.orm-3.1.0.M1.jar}"/><pathelement location="${org.springframework.test-3.1.0.M1.jar}"/><pathelement location="${org.springframework.transaction-3.1.0.M1.jar}"/><pathelement location="${org.springframework.web-3.1.0.M1.jar}"/><pathelement location="${org.springframework.expression-3.1.0.M1.jar}"/></path>
+
+	<path id="component.test.3rdParty-dependencies">
+		<pathelement location="${junit-3.8.2.jar}"/>
+	</path>
+
+</project>
