@@ -16,7 +16,7 @@
 		class="com.twogotrade.common.utils.DateTimeFileAppender">
 		<param name="file" value="logs/#{yyyy-MM-dd}.log"/>
 		<param name="append" value="true"/>
-		<param name="bufferedIO" value="true"/>
+		<param name="bufferedIO" value="false"/>
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%d %-5p %m%n"/>
 		</layout>

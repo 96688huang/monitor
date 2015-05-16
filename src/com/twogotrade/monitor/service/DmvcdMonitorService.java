@@ -38,7 +38,11 @@ public class DmvcdMonitorService {
 						Document doc = JsoupUtil.connect(MonitorConfig.DMVCD_DOMAIN, 5000, 3, 3000, "Dmvcd Monitor");
 						String title = doc == null ? "" : doc.title();
 						if (doc == null || title.startsWith("404") || title.startsWith("500")) {
-							totalRestartTime = DateUtils.isSameDay(today, new Date()) ? totalRestartTime : 0;
+							// 第二天时, 重置计数器
+							if (!DateUtils.isSameDay(today, new Date())) {
+								totalRestartTime = 0;
+								today = new Date();
+							}
 							totalRestartTime++;
 
 							logger.info("dmvcd request error, title = {}, execute stop command : {}", title,
@@ -61,7 +65,8 @@ public class DmvcdMonitorService {
 							String emailMsg = "";
 							if (doc == null || title.startsWith("404") || title.startsWith("500")) {
 								emailSubject = "Dmvcd restart Fail";
-								emailMsg = "Dmvcd restart FAIL, please check. today totalRestartTime = " + totalRestartTime;
+								emailMsg = "Dmvcd restart FAIL, please check. today totalRestartTime = "
+										+ totalRestartTime;
 								logger.error("restart dmvcd fail.");
 							} else {
 								emailSubject = "Dmvcd restart Success";
